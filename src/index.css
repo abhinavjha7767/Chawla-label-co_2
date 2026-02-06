@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aurex Design System - Premium Clothing Labels & Tags */
+
+@layer base {
+  /* ... (keep existing CSS variables) ... */
+  /* For brevity, I'll match the surrounding lines carefully to avoid replacing the big block unless needed */
+
+  :root {
+    /* Core brand colors - Professional light blue theme */
+    --background: 210 100% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Premium Purple accent */
+    --primary: 271 66% 32%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 270 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 270 40% 96.1%;
+    --muted-foreground: 270 10% 46.9%;
+
+    --accent: 270 40% 96.1%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 20% 91.4%;
+    --input: 270 20% 91.4%;
+    --ring: 270 85% 57%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-gold: linear-gradient(135deg, #9333ea, #581c87);
+    --gradient-dark: linear-gradient(180deg, #f8fafc, #f1f5f9);
+    --gradient-glow: radial-gradient(
+      ellipse at center,
+      hsl(270 85% 57% / 0.15),
+      transparent 70%
+    );
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px hsl(270 85% 57% / 0.2);
+    --shadow-elevated: 0 20px 60px hsl(222 47% 11% / 0.05);
+    --shadow-card: 0 8px 32px hsl(222 47% 11% / 0.03);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 3%;
+    --foreground: 210 40% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 210 40% 98%;
+    --popover: 270 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 270 91% 65%;
+    --primary-foreground: 270 47% 6%;
+    --secondary: 270 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 270 33% 17%;
+    --muted-foreground: 270 20% 65%;
+    --accent: 270 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 270 33% 17%;
+    --input: 270 33% 17%;
+    --ring: 270 91% 65%;
+    --sidebar-background: 270 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 270 91% 65%;
+    --sidebar-primary-foreground: 270 47% 6%;
+    --sidebar-accent: 270 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 270 33% 17%;
+    --sidebar-ring: 270 91% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Merriweather", serif;
+  }
+
+  /* Apply Poppins specifically when language is Japanese if preferred, or globally as requested */
+  html[lang="ja"] body {
+    font-family: "Merriweather", "Noto Sans JP", serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer components {
+  /* Hero gradient glow effect */
+  .hero-glow {
+    background: var(--gradient-glow);
+  }
+
+  /* Gold text gradient */
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card with gold border glow */
+  .card-glow {
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+
+  .card-glow:hover {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: var(--shadow-gold);
+  }
+
+  /* Animated underline for links */
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: hsl(var(--primary));
+    transition: width 0.3s ease;
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Floating animation for 3D elements */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotateY(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotateY(5deg);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Subtle pulse for CTAs */
+  @keyframes pulse-gold {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 10px hsl(var(--primary) / 0);
+    }
+  }
+
+  .pulse-gold {
+    animation: pulse-gold 2s ease-in-out infinite;
+  }
+
+  /* Fade in up animation */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  /* Stagger children animations */
+  .stagger-children > * {
+    opacity: 0;
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .stagger-children > *:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .stagger-children > *:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .stagger-children > *:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .stagger-children > *:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .stagger-children > *:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+}
+
+@layer utilities {
+  /* Glass morphism effect */
+  .glass {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay {
+    position: relative;
+  }
+
+  .noise-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+}
