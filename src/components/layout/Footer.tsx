@@ -46,7 +46,7 @@ export default function Footer() {
             >
               <Link to="/">
                 <h3 className="text-3xl font-serif font-bold text-gradient-gold mb-4">
-                  A. S. PRINTERS
+                  AS PRINTERS
                 </h3>
               </Link>
               <p className="text-muted-foreground max-w-sm mb-6">

@@ -141,7 +141,7 @@ export default function Navbar() {
             href="/"
             className="text-foreground hover:text-primary transition-colors font-serif font-bold text-xl tracking-tight"
           >
-            AS Printers
+            AS PRINTERS
           </a>
 
           {/* Desktop Navigation */}

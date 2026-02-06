@@ -17,7 +17,7 @@ export const translations = {
       title_start: "The House of",
       title_highlight: "LABELS",
       title_end: "AND TAGS",
-      description: "A.S. PRINTERS is a leading name in the garment and textile industry, specializing in high-quality tags and labels for your unique branding needs.",
+      description: "AS PRINTERS is a leading name in the garment and textile industry, specializing in high-quality tags and labels for your unique branding needs.",
       explore: "Explore Products",
       request: "Request Samples",
       stats: {
@@ -87,7 +87,7 @@ export const translations = {
       title_start: "Why",
       title_highlight: "Choose",
       title_end: "Us?",
-      description_1: "A.S. PRINTERS is a leading name in the garment and textile industry, specializing in high-quality tags and labels. For years, we have served businesses across various sectors, providing custom solutions that meet their unique branding needs.",
+      description_1: "AS PRINTERS is a leading name in the garment and textile industry, specializing in high-quality tags and labels. For years, we have served businesses across various sectors, providing custom solutions that meet their unique branding needs.",
       description_2: "Our commitment to excellence, state-of-the-art technology, and a dedicated team of professionals ensures that every product we deliver is of the highest standard.",
       grid: {
         quality: { title: "Unmatched Quality", desc: "Accurate and clear barcode labels for seamless inventory management." },
@@ -147,7 +147,7 @@ export const translations = {
         privacy: "Privacy Policy",
         terms: "Terms of Service"
       },
-      copyright: "© 2026 A. S. PRINTERS. All rights reserved."
+      copyright: "© 2026 AS PRINTERS. All rights reserved."
     }
   },
   Japanese: {
@@ -168,7 +168,7 @@ export const translations = {
       title_start: "ラベルと",
       title_highlight: "タグ",
       title_end: "の家",
-      description: "A.S. PRINTERSは、衣料品および繊維業界の主要な名前であり、独自のブランディングニーズに合わせた高品質のタグとラベルを専門としています。",
+      description: "AS PRINTERSは、衣料品および繊維業界の主要な名前であり、独自のブランディングニーズに合わせた高品質のタグとラベルを専門としています。",
       explore: "製品を見る",
       request: "サンプル請求",
       stats: {
@@ -238,7 +238,7 @@ export const translations = {
       title_start: "なぜ",
       title_highlight: "私たち",
       title_end: "が選ばれるのか？",
-      description_1: "A.S. PRINTERSは、衣料品および繊維業界の主要な名前であり、高品質のタグとラベルを専門としています。長年にわたり、さまざまな分野の企業にサービスを提供し、独自のブランディングニーズを満たすカスタムソリューションを提供してきました。",
+      description_1: "AS PRINTERSは、衣料品および繊維業界の主要な名前であり、高品質のタグとラベルを専門としています。長年にわたり、さまざまな分野の企業にサービスを提供し、独自のブランディングニーズを満たすカスタムソリューションを提供してきました。",
       description_2: "卓越性へのコミットメント、最先端の技術、そして専任の専門家チームにより、提供するすべての製品が最高水準であることを保証します。",
       grid: {
         quality: { title: "比類なき品質", desc: "シームレスな在庫管理のための正確で明確なバーコードラベル。" },
@@ -299,7 +299,7 @@ export const translations = {
         privacy: "プライバシーポリシー",
         terms: "利用規約"
       },
-      copyright: "© 2026 A. S. PRINTERS. 全著作権所有。"
+      copyright: "© 2026 AS PRINTERS. 全著作権所有。"
     }
   }
 };

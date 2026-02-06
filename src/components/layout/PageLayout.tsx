@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ReactNode } from "react";
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -10,7 +10,12 @@ interface PageLayoutProps {
   badge?: string;
 }
 
-export default function PageLayout({ children, title, subtitle, badge }: PageLayoutProps) {
+export default function PageLayout({
+  children,
+  title,
+  subtitle,
+  badge,
+}: PageLayoutProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -18,10 +23,12 @@ export default function PageLayout({ children, title, subtitle, badge }: PageLay
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl font-serif font-bold text-gradient-gold">AUREX</span>
+              <span className="text-2xl font-serif font-bold text-gradient-gold">
+                AS PRINTERS
+              </span>
             </Link>
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft size={16} />
@@ -57,14 +64,12 @@ export default function PageLayout({ children, title, subtitle, badge }: PageLay
       </section>
 
       {/* Content */}
-      <main className="pb-24">
-        {children}
-      </main>
+      <main className="pb-24">{children}</main>
 
       {/* Simple Footer */}
       <footer className="border-t border-border py-8">
         <div className="container mx-auto px-6 text-center text-muted-foreground text-sm">
-          © 2024 Aurex. All rights reserved.
+          © AS PRINTERS 2026 reserved
         </div>
       </footer>
     </div>

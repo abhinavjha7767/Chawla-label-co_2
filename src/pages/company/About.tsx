@@ -40,7 +40,7 @@ export default function AboutPage() {
   return (
     <PageLayout
       badge="Company"
-      title="About A. S. PRINTERS"
+      title="About AS PRINTERS"
       subtitle="A Unit of Chawla Label Company - The House of LABELS AND TAGS"
     >
       <div className="container mx-auto px-6">
@@ -73,7 +73,7 @@ export default function AboutPage() {
             All about the <span className="text-gradient-gold">Brand</span>
           </h2>
           <p className="text-muted-foreground mb-4">
-            A.S. PRINTERS is a leading name in the garment and textile industry,
+            AS PRINTERS is a leading name in the garment and textile industry,
             specializing in high-quality tags and labels. For years, we have
             served businesses across various sectors, providing custom solutions
             that meet their unique branding needs.
