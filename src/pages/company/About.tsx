@@ -3,10 +3,10 @@ import { Users, Award, Globe, Heart } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
 
 const stats = [
-  { value: "15+", label: "Years of Experience" },
-  { value: "1000+", label: "Clients Served" },
-  { value: "10M+", label: "Labels Produced" },
-  { value: "24/7", label: "Support Available" },
+  { value: "0", label: "Years of Experience" },
+  { value: "0", label: "Clients Served" },
+  { value: "0", label: "Labels Produced" },
+  { value: "0", label: "Support Available" },
 ];
 
 const values = [
