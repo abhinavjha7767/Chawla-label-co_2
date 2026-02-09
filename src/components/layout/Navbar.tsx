@@ -12,6 +12,12 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/components/language-provider";
@@ -244,29 +250,26 @@ export default function Navbar() {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>{t.nav.more}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-3 p-4">
-                      <li>
-                        <a
-                          href="#"
-                          className="block p-2 hover:bg-accent rounded-md"
-                        >
-                          {t.nav.blog}
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          className="block p-2 hover:bg-accent rounded-md"
-                        >
-                          {t.nav.careers}
-                        </a>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className={navigationMenuTriggerStyle()}>
+                      {t.nav.more}
+                      <ChevronDown className="ml-1 h-3 w-3" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-[160px]">
+                    <DropdownMenuItem asChild>
+                      <a href="#" className="w-full">
+                        {t.nav.blog}
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <a href="#" className="w-full">
+                        {t.nav.careers}
+                      </a>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </NavigationMenuList>
             </NavigationMenu>
           </div>

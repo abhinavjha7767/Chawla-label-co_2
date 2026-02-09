@@ -96,6 +96,13 @@ export default function HeroSection() {
                 asChild
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold group pulse-gold"
+                onClick={(e) => {
+                  const el = document.getElementById("products");
+                  if (el) {
+                    e.preventDefault();
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
                 <a href="#products">
                   {t.hero.explore}
