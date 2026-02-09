@@ -61,7 +61,7 @@ export const translations = {
       description: "Beyond manufacturing, we offer end-to-end solutions to elevate your brand and streamline your supply chain.",
       items: {
         design: { title: "Custom Design", desc: "Our expert design team creates unique, brand-aligned artwork for your labels and tags." },
-        consulting: { title: "Consulting", desc: "Get professional advice on material selection, sustainability options, and cost-effective packaging solutions." },
+        consulting: { title: "Consulting", desc: "Get professional advice on material selection, sustainability options, and cost-effective identity solutions." },
         prototyping: { title: "Prototyping", desc: "Visualize your final product with our high-quality physical samples and digital prototypes." },
         logistics: { title: "Logistics", desc: "Efficient global shipping and inventory management to ensure your labels arrive on time." },
         inventory: { title: "Inventory Management", desc: "Smart stocking solutions to anticipate your needs and prevent production delays." },
@@ -212,7 +212,7 @@ export const translations = {
       description: "製造だけでなく、ブランドを向上させ、サプライチェーンを効率化するためのエンドツーエンドのソリューションを提供します。",
       items: {
         design: { title: "カスタムデザイン", desc: "専門のデザインチームが、ブランドに合った独自のアートワークを作成します。" },
-        consulting: { title: "コンサルティング", desc: "素材の選択、サステナビリティ、コスト効率の良いパッケージングに関する専門的なアドバイスを提供します。" },
+        consulting: { title: "コンサルティング", desc: "素材の選択、サステナビリティ、コスト効率の良いブランディングに関する専門的なアドバイスを提供します。" },
         prototyping: { title: "プロトタイピング", desc: "量産前に高品質な物理サンプルとデジタルプロトタイプで最終製品を確認できます。" },
         logistics: { title: "物流", desc: "効率的なグローバル配送と在庫管理により、ラベルを時間通りにお届けします。" },
         inventory: { title: "在庫管理", desc: "ニーズを予測し、生産の遅れを防ぐためのスマートな在庫ソリューション。" },

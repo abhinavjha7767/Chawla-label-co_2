@@ -23,6 +23,11 @@ import Careers from "./pages/company/Careers";
 import FAQ from "./pages/support/FAQ";
 import Shipping from "./pages/support/Shipping";
 import Returns from "./pages/support/Returns";
+import Contact from "./pages/Contact";
+
+// Shop pages
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 // Legal pages
 import Privacy from "./pages/legal/Privacy";
@@ -56,6 +61,11 @@ const App = () => (
               <Route path="/faq" element={<FAQ />} />
               <Route path="/shipping" element={<Shipping />} />
               <Route path="/returns" element={<Returns />} />
+              <Route path="/contact" element={<Contact />} />
+
+              {/* Shop routes */}
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
 
               {/* Legal routes */}
               <Route path="/privacy" element={<Privacy />} />

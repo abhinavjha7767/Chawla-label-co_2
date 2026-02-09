@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
 import { ReactNode } from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -18,28 +18,10 @@ export default function PageLayout({
 }: PageLayoutProps) {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl font-serif font-bold text-gradient-gold">
-                AS PRINTERS
-              </span>
-            </Link>
-            <Link
-              to="/"
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <ArrowLeft size={16} />
-              <span className="text-sm">Back to Home</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden pt-32">
         <div className="absolute inset-0 hero-glow opacity-50" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -66,12 +48,7 @@ export default function PageLayout({
       {/* Content */}
       <main className="pb-24">{children}</main>
 
-      {/* Simple Footer */}
-      <footer className="border-t border-border py-8">
-        <div className="container mx-auto px-6 text-center text-muted-foreground text-sm">
-          © AS PRINTERS 2026 reserved
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import {
-  Menu,
-  X,
-  ShoppingCart,
-  Search,
-  Box,
-  ChevronDown,
-  Globe,
-} from "lucide-react";
+import { Menu, X, Search, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import {
@@ -20,17 +12,12 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/components/language-provider";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
-// Organized Data for Clothing/Garment Industry (Keeping English for product names as they are often proper nouns/universal, or can be translated later)
 const productCategories = [
   {
     title: "Woven Labels",
@@ -78,8 +65,6 @@ const productCategories = [
     items: [
       { title: "Seal Strings", href: "#" },
       { title: "Ribbons & Tapes", href: "#" },
-      { title: "Tissue Paper", href: "#" },
-      { title: "Packaging Boxes", href: "#" },
       { title: "RFID / NFC Tags", href: "#" },
     ],
   },
@@ -89,7 +74,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -118,7 +103,7 @@ export default function Navbar() {
               <Search className="h-5 w-5 text-muted-foreground" />
               <Input
                 autoFocus
-                placeholder={language === "Japanese" ? "検索..." : "Search..."}
+                placeholder="Search..."
                 className="flex-1 border-none shadow-none focus-visible:ring-0 text-lg bg-transparent h-12"
               />
               <Button
@@ -196,7 +181,7 @@ export default function Navbar() {
                               {t.nav.services}
                             </div>
                             <p className="text-sm leading-tight text-muted-foreground">
-                              Explore our wide range of printing and packaging
+                              Explore our wide range of printing and labeling
                               solutions suited for your specific needs.
                             </p>
                           </a>
@@ -212,7 +197,7 @@ export default function Navbar() {
                               Consulting
                             </div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Expert advice for your packaging.
+                              Expert advice for your branding.
                             </p>
                           </a>
                         </NavigationMenuLink>
@@ -252,9 +237,11 @@ export default function Navbar() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <a href="#contacts" className={navigationMenuTriggerStyle()}>
-                    {t.nav.contacts}
-                  </a>
+                  <NavigationMenuLink asChild>
+                    <a href="/contact" className={navigationMenuTriggerStyle()}>
+                      Contact Us
+                    </a>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
@@ -299,31 +286,6 @@ export default function Navbar() {
           </button>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" size="icon">
-              <ShoppingCart className="h-5 w-5" />
-            </Button>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="flex items-center gap-1 px-2"
-                >
-                  <Globe className="h-4 w-4 mr-1" />
-                  <span className="text-sm font-medium">{language}</span>
-                  <ChevronDown className="h-3 w-3 opacity-50" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage("English")}>
-                  English
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage("Japanese")}>
-                  日本語 (Japanese)
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
             <Button
               variant="ghost"
               size="icon"
@@ -348,10 +310,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-4 p-4">
             <div className="relative mb-4">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder={language === "Japanese" ? "検索..." : "Search..."}
-                className="pl-9"
-              />
+              <Input placeholder="Search..." className="pl-9" />
             </div>
 
             <a
@@ -384,26 +343,6 @@ export default function Navbar() {
             >
               {t.nav.contacts}
             </a>
-
-            <div className="flex items-center justify-between py-4 border-b border-border">
-              <span className="font-medium">{t.nav.language}</span>
-              <div className="flex gap-2">
-                <Button
-                  variant={language === "English" ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setLanguage("English")}
-                >
-                  EN
-                </Button>
-                <Button
-                  variant={language === "Japanese" ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setLanguage("Japanese")}
-                >
-                  JP
-                </Button>
-              </div>
-            </div>
 
             <div className="flex items-center justify-between py-4">
               <span className="font-medium">{t.nav.theme}</span>
