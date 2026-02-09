@@ -128,11 +128,12 @@ export default function Navbar() {
         <div
           className={`flex items-center gap-4 ${isSearchOpen ? "invisible" : ""}`}
         >
-          <a
-            href="/"
-            className="text-foreground hover:text-primary transition-colors font-serif font-bold text-xl tracking-tight"
-          >
-            AS PRINTERS
+          <a href="/" className="flex items-center">
+            <img
+              src="/logo.png"
+              alt="AS PRINTERS Logo"
+              className="h-10 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}
