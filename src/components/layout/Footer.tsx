@@ -36,13 +36,14 @@ export default function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 text-center">
           {/* Brand Column */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 flex flex-col items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="flex flex-col items-center"
             >
               <Link to="/">
                 <h3 className="text-3xl font-serif font-bold text-gradient-gold mb-4">
@@ -52,7 +53,7 @@ export default function Footer() {
               <p className="text-muted-foreground max-w-sm mb-6">
                 {t.footer.brand_desc}
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
@@ -68,7 +69,7 @@ export default function Footer() {
           </div>
 
           {/* Links Columns */}
-          <div>
+          <div className="flex flex-col items-center">
             <h4 className="font-semibold text-foreground mb-4">
               {t.footer.headers.products}
             </h4>
@@ -86,7 +87,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="flex flex-col items-center">
             <h4 className="font-semibold text-foreground mb-4">
               {t.footer.headers.company}
             </h4>
@@ -113,7 +114,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="flex flex-col items-center">
             <h4 className="font-semibold text-foreground mb-4">
               {t.footer.headers.support}
             </h4>

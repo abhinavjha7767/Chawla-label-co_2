@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Search, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
@@ -50,16 +50,7 @@ const productCategories = [
       { title: "Spot UV / Foil", href: "#" },
     ],
   },
-  {
-    title: "Stickers & Patches",
-    items: [
-      { title: "Heat Transfer Stickers", href: "#" },
-      { title: "Leather Patches", href: "#" },
-      { title: "Rubber / PVC Patches", href: "#" },
-      { title: "Embroidered Patches", href: "#" },
-      { title: "Barcode Stickers", href: "#" },
-    ],
-  },
+
   {
     title: "Accessories",
     items: [
@@ -83,6 +74,14 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isMobileMenuOpen]);
 
   return (
     <motion.header
@@ -300,57 +299,64 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && !isSearchOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="lg:hidden bg-background border-t border-border overflow-y-auto max-h-[calc(100vh-4rem)]"
-        >
-          <div className="flex flex-col gap-4 p-4">
-            <div className="relative mb-4">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input placeholder="Search..." className="pl-9" />
-            </div>
+      <AnimatePresence>
+        {isMobileMenuOpen && !isSearchOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-background border-t border-border overflow-y-auto max-h-[calc(100vh-4rem)] shadow-xl relative z-[60]"
+          >
+            <div className="flex flex-col gap-4 p-4">
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input placeholder="Search..." className="pl-9" />
+              </div>
 
-            <a
-              href="#"
-              className="text-lg font-medium py-2 border-b border-border"
-            >
-              {t.nav.products}
-            </a>
-            <a
-              href="#"
-              className="text-lg font-medium py-2 border-b border-border"
-            >
-              {t.nav.services}
-            </a>
-            <a
-              href="#"
-              className="text-lg font-medium py-2 border-b border-border"
-            >
-              {t.nav.sustainable}
-            </a>
-            <a
-              href="#"
-              className="text-lg font-medium py-2 border-b border-border"
-            >
-              {t.nav.about}
-            </a>
-            <a
-              href="#"
-              className="text-lg font-medium py-2 border-b border-border"
-            >
-              {t.nav.contacts}
-            </a>
+              <a
+                href="#products"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-medium py-2 border-b border-border"
+              >
+                {t.nav.products}
+              </a>
+              <a
+                href="#services"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-medium py-2 border-b border-border"
+              >
+                {t.nav.services}
+              </a>
+              <a
+                href="#sustainable"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-medium py-2 border-b border-border"
+              >
+                {t.nav.sustainable}
+              </a>
+              <a
+                href="#about"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-medium py-2 border-b border-border"
+              >
+                {t.nav.about}
+              </a>
+              <a
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-medium py-2 border-b border-border"
+              >
+                {t.nav.contacts}
+              </a>
 
-            <div className="flex items-center justify-between py-4">
-              <span className="font-medium">{t.nav.theme}</span>
-              <ModeToggle />
+              <div className="flex items-center justify-between py-4">
+                <span className="font-medium">{t.nav.theme}</span>
+                <ModeToggle />
+              </div>
             </div>
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

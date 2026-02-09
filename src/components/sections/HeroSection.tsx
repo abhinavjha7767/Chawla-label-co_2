@@ -109,7 +109,7 @@ export default function HeroSection() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-border text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 pt-8 border-t border-border text-center">
               {[
                 { value: 0, label: t.hero.stats.brands },
                 { value: 0, label: t.hero.stats.labels },
