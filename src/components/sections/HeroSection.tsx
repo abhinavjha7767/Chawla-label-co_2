@@ -93,18 +93,14 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
+                asChild
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold group pulse-gold"
               >
-                {t.hero.explore}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-input bg-background/50 hover:bg-accent hover:text-accent-foreground"
-              >
-                {t.hero.request}
+                <a href="#products">
+                  {t.hero.explore}
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
             </div>
 
