@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search, Box } from "lucide-react";
+import { Menu, X, Search, Box, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import {
@@ -65,6 +65,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -313,38 +314,171 @@ export default function Navbar() {
                 <Input placeholder="Search..." className="pl-9" />
               </div>
 
-              <a
-                href="#products"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-medium py-2 border-b border-border"
-              >
-                {t.nav.products}
-              </a>
-              <a
-                href="#services"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-medium py-2 border-b border-border"
-              >
-                {t.nav.services}
-              </a>
+              {/* Products Section */}
+              <div className="border-b border-border">
+                <button
+                  onClick={() =>
+                    setMobileExpanded(
+                      mobileExpanded === "products" ? null : "products",
+                    )
+                  }
+                  className="flex items-center justify-between w-full text-lg font-medium py-3"
+                >
+                  {t.nav.products}
+                  <ChevronDown
+                    className={cn(
+                      "h-5 w-5 transition-transform",
+                      mobileExpanded === "products" && "rotate-180",
+                    )}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileExpanded === "products" && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden bg-muted/30 rounded-lg mb-2"
+                    >
+                      <div className="p-4 space-y-6">
+                        {productCategories.map((group, idx) => (
+                          <div key={idx} className="space-y-2">
+                            <h4 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                              {group.title}
+                            </h4>
+                            <div className="grid grid-cols-1 gap-2">
+                              {group.items.map((item, i) => (
+                                <a
+                                  key={i}
+                                  href={item.href}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="text-sm py-1 hover:text-primary transition-colors block"
+                                >
+                                  {item.title}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Services Section */}
+              <div className="border-b border-border">
+                <button
+                  onClick={() =>
+                    setMobileExpanded(
+                      mobileExpanded === "services" ? null : "services",
+                    )
+                  }
+                  className="flex items-center justify-between w-full text-lg font-medium py-3"
+                >
+                  {t.nav.services}
+                  <ChevronDown
+                    className={cn(
+                      "h-5 w-5 transition-transform",
+                      mobileExpanded === "services" && "rotate-180",
+                    )}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileExpanded === "services" && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden bg-muted/30 rounded-lg mb-2"
+                    >
+                      <div className="p-4 space-y-4">
+                        <a
+                          href="#"
+                          className="block p-3 rounded-lg hover:bg-accent transition-colors"
+                        >
+                          <div className="font-medium">Consulting</div>
+                          <div className="text-xs text-muted-foreground">
+                            Expert advice for your branding.
+                          </div>
+                        </a>
+                        <a
+                          href="#"
+                          className="block p-3 rounded-lg hover:bg-accent transition-colors"
+                        >
+                          <div className="font-medium">Design</div>
+                          <div className="text-xs text-muted-foreground">
+                            Creative label designs.
+                          </div>
+                        </a>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <a
                 href="#sustainable"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-medium py-2 border-b border-border"
+                className="text-lg font-medium py-3 border-b border-border"
               >
                 {t.nav.sustainable}
               </a>
               <a
                 href="#about"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-medium py-2 border-b border-border"
+                className="text-lg font-medium py-3 border-b border-border"
               >
                 {t.nav.about}
               </a>
+
+              {/* More Section */}
+              <div className="border-b border-border">
+                <button
+                  onClick={() =>
+                    setMobileExpanded(mobileExpanded === "more" ? null : "more")
+                  }
+                  className="flex items-center justify-between w-full text-lg font-medium py-3"
+                >
+                  {t.nav.more}
+                  <ChevronDown
+                    className={cn(
+                      "h-5 w-5 transition-transform",
+                      mobileExpanded === "more" && "rotate-180",
+                    )}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileExpanded === "more" && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden bg-muted/30 rounded-lg mb-2"
+                    >
+                      <div className="p-4 space-y-2">
+                        <a
+                          href="#"
+                          className="block py-2 hover:text-primary transition-colors text-sm"
+                        >
+                          {t.nav.blog}
+                        </a>
+                        <a
+                          href="#"
+                          className="block py-2 hover:text-primary transition-colors text-sm"
+                        >
+                          {t.nav.careers}
+                        </a>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <a
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-medium py-2 border-b border-border"
+                className="text-lg font-medium py-3 border-b border-border"
               >
                 {t.nav.contacts}
               </a>
